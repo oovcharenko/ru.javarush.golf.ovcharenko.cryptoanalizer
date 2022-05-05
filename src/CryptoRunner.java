@@ -156,7 +156,7 @@ public class CryptoRunner {
         System.out.print("Введите путь к файлу для обработки (по умолчанию SourceFile.txt): ");
         String sourcePath = sc.nextLine();
         if (sourcePath.isEmpty()) {
-            sourcePath = "src/SourceFile.txt";
+            sourcePath = "SourceFile.txt";
         }
         return sourcePath;
     }
