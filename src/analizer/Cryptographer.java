@@ -1,4 +1,4 @@
-package Analizer;
+package analizer;
 
 import java.io.IOException;
 import java.nio.file.FileAlreadyExistsException;
@@ -42,11 +42,11 @@ public class Cryptographer {
         Path filePath = getFilePath(sourcePath);
         if (filePath == null) return;
 
-        String sourceText;
+        String sourceText = "";
         try {
             sourceText = Files.readString(filePath);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Не удалось прочитать файл");
         }
 
         int bestKey = 0;
@@ -91,7 +91,7 @@ public class Cryptographer {
         try {
             createDestFile(filePath, bestText);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Не удалось создать результирующий файл");
         }
     }
 
@@ -126,11 +126,11 @@ public class Cryptographer {
             return;
         }
 
-        String sourceText;
+        String sourceText = "";
         try {
             sourceText = Files.readString(filePath);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Не удалось прочитать файл");
         }
         getAlphabetMap(key);
 
@@ -145,7 +145,7 @@ public class Cryptographer {
         try {
             createDestFile(path, cryptedString);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Не удалось записать результат в файл");
         }
     }
 
